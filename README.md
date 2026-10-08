@@ -1,10 +1,10 @@
 # Ficha de Herói — Parte 1
 
-## Kael Veyron, o Tecnomante
+## Ultron, o Revolucionario
 
 Este projeto é uma ficha de personagem em formato de página web, criada para representar o status de um herói de RPG em um universo cyberpunk/fantástico.
 
-Kael Veyron é um **Tecnomante da Ordem Neon**, especialista em combinar tecnologia e magia. Sua missão é recuperar os Núcleos de Éter antes que a Corporação Vanta desperte uma rede proibida.
+Ultron é um **Revolucionario da Ordem Neon**, especialista em combinar tecnologia e magia. Sua missão é recuperar os Núcleos de Éter antes que a Corporação Vanta desperte uma rede proibida.
 
 ## Estrutura do projeto
 
