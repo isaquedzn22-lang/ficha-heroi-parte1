@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Ficha de herói de Ultron: atributos, habilidades, equipamentos e conquistas da Ordem Neon.">
-    <title>ZAQ BRAGA — Ficha de Herói</title>
+    <title>Ultron — Ficha de Herói</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -27,12 +27,20 @@
                 <span>NEON<span class="logo-destaque">REALM</span></span>
             </a>
 
-            <nav class="navegacao" aria-label="Navegação principal">
+            <nav class="navegacao" id="menu" aria-label="Navegação principal">
                 <a href="#sobre">Sobre</a>
                 <a href="#atributos">Atributos</a>
                 <a href="#inventario">Inventário</a>
                 <a href="#guilda">Guilda</a>
             </nav>
+            <div class="cabecalho-acoes">
+                <button class="btn-tema" id="btnTema" type="button" aria-pressed="false" title="Alternar modo noturno da guilda">
+                    <i class="fa-solid fa-moon"></i> <span class="rotulo-tema">Noturno: desligado</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -42,20 +50,29 @@
                 <div class="avatar-area">
                     <div class="avatar" role="img" aria-label="Avatar ilustrativo de Ultron">
                         <div class="avatar-circuitos"></div>
-                        <i class="fa-solid fa-user-astronaut"></i>
+                        <img src="assets/ultron-neon-realm.png" alt="Ultron, guardião cibernético da Ordem Neon">
                     </div>
-                    <span class="nivel">NÍVEL 30</span>
+                    <span class="nivel" id="nivel">NÍVEL 30</span>
                 </div>
 
                 <div class="hero-info">
+                    <p class="saudacao" id="saudacao"></p>
                     <p class="eyebrow"><i class="fa-solid fa-bolt"></i> ORDEM NEON</p>
-                    <h1>Ultron <span></span></h1>
+                    <h1>Ultron</h1>
                     <h2><i class="fa-solid fa-code"></i> Revolucionário</h2>
                     <p class="bio">
                         Nascido entre circuitos antigos e ruínas digitais, Ultron domina a arte de
                         transformar código em energia. Sua missão é recuperar os Núcleos de Éter
                         antes que a Corporação Vanta Black desperte a rede proibida.
                     </p>
+                    <p class="bio historia" id="historia">
+                        Ultron foi forjado nos subníveis de Neo-Santos, onde servidores esquecidos ainda
+                        sussurram feitiços em binário. Ao descobrir que os Núcleos de Éter alimentam a rede
+                        proibida da Vanta Black, jurou à Ordem Neon que nenhum deles seria usado como arma.
+                    </p>
+                    <button class="btn-link" id="btnHistoria" type="button" aria-expanded="false" aria-controls="historia">
+                        <span id="rotuloHistoria">Ver história completa</span> <i class="fa-solid fa-chevron-down"></i>
+                    </button>
 
                     <div class="dados-heroi">
                         <div>
@@ -68,13 +85,21 @@
                         </div>
                         <div>
                             <span>XP</span>
-                            <strong>8.740 / 10.000</strong>
+                            <strong id="xpResumo">87 / 100</strong>
                         </div>
                     </div>
 
-                    <a class="botao" href="#atributos">
+                    <div class="xp">
+                        <div class="atributo-topo"><span><i class="fa-solid fa-star"></i> Experiência</span><strong id="xpTexto">87 / 100</strong></div>
+                        <div class="barra" role="progressbar" aria-label="Experiência" aria-valuemin="0" aria-valuemax="100" aria-valuenow="87" id="xpBarraBox"><div class="barra-preenchida" id="xpBarra" style="width: 87%"></div></div>
+                        <p class="xp-msg" id="xpMsg" role="status"></p>
+                    </div>
+                    <div class="acoes-hero">
+                        <button class="botao" id="btnXp" type="button">Completar missão <i class="fa-solid fa-bolt"></i></button>
+                        <a class="botao" href="#atributos">
                         Ver status <i class="fa-solid fa-arrow-down"></i>
                     </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -178,31 +203,16 @@
                     <p>Itens carregados pelo herói e feitos registrados pela guilda.</p>
                 </div>
 
-                <div class="inventario-grid">
-                    <article class="item-card destaque">
-                        <span class="raridade lendario">LENDÁRIO</span>
-                        <div class="item-icone"><i class="fa-solid fa-gem"></i></div>
-                        <h3>Núcleo de Éter</h3>
-                        <p>Artefato capaz de armazenar energia arcana e alimentar tecnologias esquecidas.</p>
-                        <span class="item-status"><i class="fa-solid fa-circle-check"></i> Equipado</span>
-                    </article>
-
-                    <article class="item-card">
-                        <span class="raridade raro">RARO</span>
-                        <div class="item-icone"><i class="fa-solid fa-keyboard"></i></div>
-                        <h3>Deck Neon</h3>
-                        <p>Terminal portátil usado para invadir redes e analisar sistemas.</p>
-                        <span class="item-status"><i class="fa-solid fa-circle-check"></i> Equipado</span>
-                    </article>
-
-                    <article class="item-card">
-                        <span class="raridade comum">COMUM</span>
-                        <div class="item-icone"><i class="fa-solid fa-flask"></i></div>
-                        <h3>Poção de Fluxo</h3>
-                        <p>Recupera energia mágica durante missões prolongadas.</p>
-                        <span class="item-status"><i class="fa-solid fa-box"></i> Inventário</span>
-                    </article>
-
+                <div class="filtros" role="group" aria-label="Filtrar inventário por tipo">
+                    <button type="button" class="filtro ativo" data-filtro="todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="filtro" data-filtro="arma" aria-pressed="false">Armas</button>
+                    <button type="button" class="filtro" data-filtro="pocao" aria-pressed="false">Poções</button>
+                    <button type="button" class="filtro" data-filtro="equipamento" aria-pressed="false">Equipamentos</button>
+                    <button type="button" class="filtro" data-filtro="artefato" aria-pressed="false">Artefatos</button>
+                </div>
+                <p class="contador" id="contador" aria-live="polite"></p>
+                <div class="inventario-grid" id="listaItens"></div>
+                <div class="inventario-grid conquistas">
                     <article class="conquista-card">
                         <div class="conquista-icone"><i class="fa-solid fa-trophy"></i></div>
                         <div>
@@ -239,27 +249,18 @@
                     <h2>Contato com a Guilda</h2>
                     <p>
                         Precisa contratar Ultron para uma missão, enviar uma proposta ou acompanhar
-                        novas expedições? Use um dos canais oficiais abaixo.
+                        novas expedições? Envie uma mensagem para a guilda.
                     </p>
                 </div>
-
-                <div class="links-guilda">
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                        <i class="fa-brands fa-discord"></i>
-                        <span>Discord da Guilda</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
+                <form class="form-guilda" id="formGuilda" novalidate aria-labelledby="tituloForm">
+                    <h3 id="tituloForm">Enviar mensagem à guilda</h3>
+                    <p class="form-nota">Campos com * são obrigatórios.</p>
+                    <div class="campo"><label for="nome">Nome *</label><input id="nome" name="nome" type="text" autocomplete="name" aria-describedby="erro-nome"><span class="erro" id="erro-nome" role="alert"></span></div>
+                    <div class="campo"><label for="email">E-mail *</label><input id="email" name="email" type="email" autocomplete="email" aria-describedby="erro-email"><span class="erro" id="erro-email" role="alert"></span></div>
+                    <div class="campo"><label for="mensagem">Mensagem *</label><textarea id="mensagem" name="mensagem" rows="4" aria-describedby="erro-mensagem"></textarea><span class="erro" id="erro-mensagem" role="alert"></span></div>
+                    <button class="botao" type="submit">Enviar mensagem <i class="fa-solid fa-paper-plane"></i></button>
+                    <p class="form-status" id="formStatus" role="status"></p>
+                </form>
             </div>
         </section>
     </main>
@@ -270,6 +271,7 @@
             <p>Desenvolvido por: Isaque Braga</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>

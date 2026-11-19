@@ -1,65 +1,36 @@
-# Ficha de Herói — Parte 1
+# Ficha de Herói — Parte 2 (JavaScript)
 
-## Ultron, o Revolucionario
+## Ultron, o Revolucionário
+Ficha de personagem em formato de página web: Ultron é um **Revolucionário da Ordem Neon**, que combina tecnologia e magia para recuperar os Núcleos de Éter antes que a Corporação Vanta Black desperte a rede proibida.
 
-Este projeto é uma ficha de personagem em formato de página web, criada para representar o status de um herói de RPG em um universo cyberpunk/fantástico.
-
-Ultron é um **Revolucionario da Ordem Neon**, especialista em combinar tecnologia e magia. Sua missão é recuperar os Núcleos de Éter antes que a Corporação Vanta desperte uma rede proibida.
-
-## Estrutura do projeto
-
+## Estrutura
 ```text
-ficha-heroi-parte1/
+ficha-heroi-parte2/
 ├── index.html
 ├── style.css
+├── script.js
 └── README.md
 ```
+Como executar: abrir `index.html` no navegador (Google Fonts e Font Awesome via CDN exigem internet).
 
-O HTML e o CSS estão separados. O projeto foi estruturado para receber JavaScript posteriormente na Parte 2.
-
-## Seções
-
-1. **Sobre o Herói** — avatar, nome, classe, biografia, origem, alinhamento e experiência.
-2. **Atributos & Habilidades** — atributos representados por barras de progresso e habilidades especiais.
-3. **Inventário & Conquistas** — itens com raridade, item lendário em destaque e conquistas da guilda.
-4. **Contato com a Guilda** — links para GitHub, LinkedIn e Discord.
-
-## Tecnologias utilizadas
-
-- HTML5 semântico
-- CSS3
-- CSS Grid
-- Flexbox
-- Media Queries
-- Variáveis CSS em `:root`
-- Google Fonts: Orbitron e Rajdhani
-- Font Awesome
+## Funcionalidades de JavaScript
+- **Menu hambúrguer** (telas ≤ 620px): classe `.aberto` alternada; ícone muda de ☰ para ✕; fecha com `Esc` e ao clicar em um link.
+- **Inventário dinâmico**: array de 6 objetos (nome, tipo, raridade, descrição), cards gerados com `forEach` + `createElement`; **filtros por tipo** com botão ativo destacado.
+- **Barra de XP**: botão "Completar missão" soma 15 XP e atualiza a largura da barra; ao atingir 100 XP exibe "Nível up!" (condicional) e sobe o nível.
+- **Ver história completa / Ver menos**: alternância com operador ternário e classe `.revelado`.
+- **Formulário da guilda**: valida nome, e-mail (formato) e mensagem com `preventDefault()`; erros por campo, mensagem de sucesso/falha na tela (sem `alert()`).
+- **Extras**: contador de itens, modo noturno (classe no `<body>`), rolagem suave entre seções e saudação por horário.
+- **Pesquisa complementar**: persistência com `localStorage` (XP, nível e modo noturno sobrevivem ao recarregar a página).
 
 ## Decisões de UI/UX
+**Parte 1 (interface estática)**
+- Hierarquia: nome e avatar em destaque, atributos e ações em seguida; contraste claro entre texto e fundo escuro.
+- Consistência: cards, barras e bordas seguem o mesmo padrão visual e as mesmas variáveis em `:root`.
+- Responsividade: inventário em 3, 2 e 1 colunas conforme a largura.
 
-- A interface usa superfícies translúcidas com `backdrop-filter` em pontos de navegação e conteúdo, com fallback para navegadores sem suporte.
-- A profundidade vem de perspectiva, camadas e sombras neutras. O contraste continua concentrado no texto e nos indicadores de status; fotos e conteúdo não recebem véus luminosos.
-- O layout mantém títulos e conteúdo alinhados à esquerda, com hierarquia assimétrica na apresentação do herói.
-- Atributos, itens e conquistas aparecem em superfícies independentes. Não há cards aninhados, efeitos de glow ou ícones em emoji.
-- Textos de inventário e conquistas foram reduzidos para destacar nome, raridade e estado do item.
-- Links e ação principal incluem estados visíveis de foco e interação. A folha de estilos respeita `prefers-reduced-motion`.
-
-## Responsividade
-
-O layout utiliza três faixas principais:
-
-- **Desktop:** inventário com 3 colunas.
-- **Tablet:** inventário e blocos principais com 2 colunas.
-- **Celular:** conteúdo reorganizado em 1 coluna.
-
-Também foram adaptados tamanhos de fonte, espaçamentos, navegação e avatar para telas pequenas. Em celulares, a composição permanece alinhada à esquerda e os blocos passam a uma coluna.
-
-## Como executar
-
-Basta abrir o arquivo `index.html` em um navegador.
-
-O projeto utiliza Google Fonts e Font Awesome por CDN, portanto esses recursos dependem de conexão com a internet para carregar corretamente.
-
-## Observação
-
-O personagem, universo, textos e identidade visual foram criados especificamente para este projeto.
+**Parte 2 (interação)**
+- *Visibilidade do estado*: o menu troca ☰/✕ e usa `aria-expanded`; o filtro ativo fica destacado; o modo noturno mostra "ligado/desligado".
+- *Feedback imediato*: cada missão mostra mensagem na hora e a barra anima; o envio do formulário exibe sucesso ou falha.
+- *Prevenção de erros*: campos obrigatórios marcados com *, validação ao sair do campo e mensagens que dizem como corrigir; nunca falha em silêncio.
+- *Controle do usuário*: menu, história e filtros podem ser fechados/desfeitos sem recarregar a página.
+- *Consistência*: estados novos reutilizam as cores e transições da Parte 1; alvos de toque ≥ 44px.
